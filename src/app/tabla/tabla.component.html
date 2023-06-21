@@ -1,0 +1,84 @@
+  <div class="container mt-5">
+    <section>
+
+
+    </section>
+    <mat-divider></mat-divider>
+    <form [formGroup]="form" (ngSubmit)="agregarPersona()">
+
+
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="nombre">Nombres:</label>
+                    <input type="text"  formControlName="nombre" class="form-control form-control-lg">
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="apellido">Apellidos:</label>
+                    <input type="text" formControlName="apellido" class="form-control form-control-lg">
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="nota_1">Valor de donacion:</label>
+                    <input type="number" placeholder="Ingrese donacion" formControlName="valorD"required (keypress)="validarRangoNotas($event)"
+                        class="form-control form-control-lg"  >
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-3">
+                <div class="form-group mt-4">
+                    <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-lg">Agregar
+                        <i class="bi bi-person-plus-fill"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <br>
+    <br>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Donativo</th>
+                <th scope="col">Estado de donacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let persona of listPersona let i=index">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{persona.nombre}}</td>
+                <td>{{persona.apellido}}</td>
+                <td>{{persona.valorD}}</td>
+                <td>{{persona.promedio}}</td>
+                <td>{{persona.estado ? 'donacion aceptada' : 'donacion aceptada' }}</td>
+
+                <td>
+                    <span class="cursor text-success">
+                        <i routerLink="/editarPersona/" class="bi bi-pencil-square"></i>
+                    </span>
+                    <span class="cursor text-danger offset-2">
+                        <i class="bi bi-file-earmark-x-fill"></i>
+                    </span>
+                </td>
+
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+  

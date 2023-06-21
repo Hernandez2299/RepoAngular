@@ -1,0 +1,27 @@
+.contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+  }
+  
+  .contacto img {
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .contacto h2 {
+    margin: 5px 0;
+  }
+  
+  .contacto a {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .contacto a:hover {
+    text-decoration: underline;
+  }
+  
